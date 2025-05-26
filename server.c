@@ -1,33 +1,43 @@
 #include "minitalk.h"
 
+
 void print_pid(pid_t server);
 
-int get_0(void)
+__sighandler_t get_0(char *out_bin)
 {
-	write (1, "0", 1);
-	return (0);
+	char *tmp;
+
+	tmp = out_bin;
+	out_bin = ft_strjoinc(out_bin, '0');
+	if (tmp)
+		free(tmp);
+	if (!out_bin)
+		return(1);
+	// write(1, "0", 1);
+	// return (0);
 }
-int get_1(void)
+__sighandler_t get_1(char *out_bin)
 {
-	write(1, "1", 1);
-	return (0);
+	char *tmp;
+
+	tmp = out_bin;
+	out_bin = ft_strjoinc(out_bin, '1');
+	if (tmp)
+		free(tmp);
+	if (!out_bin)
+		return(1);
+	// write(1, "1", 1);
+	// return (0);
 }
-
-char	*get_char(char c)
-{
-	size_t	i;
-
-	i = 0;
-	while 
-}
-
 
 int main()
 {
 	pid_t	server;
+	char *out_bin = NULL;
 
-	signal(SIGUSR1, get_0);
-	signal(SIGUSR2, get_1);
+	out_bin = ft_strdup("");
+	signal(SIGUSR1, get_0(out_bin));
+	signal(SIGUSR2, get_1(out_bin));
 	server = getpid();
 	print_pid(server);
 	while (1) ;

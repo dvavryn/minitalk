@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
-#include "../../libft/libft.h"
+#include "../libft/libft.h"
 
 int power(int of);
 int	bintoc(char *bin);
@@ -10,94 +10,35 @@ char *get_msg(char *binsnake);
 int main(void)
 {
 	// int c = bintoc(argv[1]);
-	char *binsnake = "010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000000000000";
+	char *binsnake;
+	binsnake = ft_strdup("010010000110000101101100011011000110100101101000011000010110110001101100011011110000000000");
 	char *s = get_msg(binsnake);
 	if (!s)
 		return (1);
 
-	printf("%s\n", binsnake);
+	// printf("%s\n", binsnake);
 	printf("%s", s);
 	free(s);
 }
 
-char *get_msg(char *binsnake)
+char	*get_msg(char *binsnake)
 {
-	char	*out;
-	char	*charinbin;
-	char	*tmp;
+	char *tmp;
+	char *bin;
+	char c;
 
-	if (!binsnake)
-		return (NULL);
-	out = ft_strdup("");
-	while (ft_strlen(binsnake) >= 16);
-	{
-		charinbin = ft_strndup(binsnake, 8);
-		if (!charinbin)
-			return (free(out), NULL);
-		tmp = out;
-		out = ft_strjoinc(out, bintoc(charinbin));
-		if (!out)
-			return (free(tmp), free(charinbin), NULL);
-		free(tmp);
-		tmp = binsnake;
-		binsnake = ft_substr(binsnake, 8, ft_strlen(binsnake) - 8);
-		if (!binsnake)
-			return (free(tmp), free(out), free(charinbin), NULL);
-		printf("%s\n", binsnake);
-		free(tmp);
-	}
-	return (out);
-}
-
-
-
-/* 
-char *get_msg(char *binsnake)
-{
-	char	*out;
-	char	*charinbin;
-	charinbin = ft_strndup(binsnake, 8);
-	if (!charinbin)
-		return (NULL);
-	out = (char *)malloc(2);
-	if (!out)
-		return (free(charinbin), NULL);
-	out[0] = bintoc(charinbin);
-	out[1] = 0;
-	return (free(charinbin), out);
-} */
-
-
-
-
-
-
-
-
-
-/* char *addc(char *buffer, char *binsnake, int c)
-{
-	char	*bin;
-	char	*tmp;
-
-	if (!buffer)
-		ft_strdup("");
-	bin = ft_strndup(binsnake, 8);
-	if (!bin)
-		return (NULL);
 	tmp = binsnake;
-	binsnake = ft_substr(binsnake, 8, ft_strlen(binsnake) - 8);
-	if (!binsnake)
-		return (free(bin), free(tmp), NULL);
+	while (ft_strlen(binsnake) >= 8)
+	{
+		bin = ft_strndup(binsnake, 8);
+		c = bintoc(bin);
+		free(bin);
+		printf("%c", c);
+		binsnake += 8;
+	}
 	free(tmp);
-	tmp = buffer;
-	buffer = ft_stradd(buffer, c);
-	if (!buffer)
-		return (free(bin), free(tmp), NULL);
-	free(tmp);
-	return (buffer);
+	return (NULL);
 }
- */
 
 int	bintoc(char *bin)
 {
@@ -119,6 +60,7 @@ int	bintoc(char *bin)
 		j++;
 		i--;
 	}
+	return (0);
 }
 
 int power(int of)

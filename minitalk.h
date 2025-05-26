@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 13:57:05 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/05/24 23:10:39 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/05/26 10:47:35 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <sys/types.h>
 //	pid_t;
 
-# include "../../../libft/libft.h"
+# include "../libft/libft.h"
 //	ft_printf()
 
 #include <signal.h>

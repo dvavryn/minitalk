@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 20:20:04 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/05/24 20:20:39 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/05/26 10:54:58 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*chartobin(int c)
 		c /= 2;
 		i++;
 	}
+	return (NULL);
 }
 
 char	*reverse(char *in)
